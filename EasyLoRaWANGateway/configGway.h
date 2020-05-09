@@ -1,7 +1,9 @@
 // 1-channel LoRa Gateway for ESP32 and ESP8266
 // Copyright (c) Maarten Westenberg 2016-2020 
 
-#define VERSION "V.6.2.4.EU433; PlatformIO 200428n" // Easy LoRa
+// Easy LoRa
+// #define VERSION "V.6.2.4.EU868; PlatformIO 200428n"
+#define VERSION "V.6.2.4.EU433"
 //
 // Based on work done by Thomas Telkamp for Raspberry PI 1ch gateway and many others.
 //

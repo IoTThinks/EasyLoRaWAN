@@ -424,27 +424,40 @@ static void openWebPage()
 	if (gwayConfig.refresh) {
 		response += String() + "<!DOCTYPE HTML><HTML><HEAD><meta http-equiv='refresh' content='"+_WWW_INTERVAL+";http://";
 		response += tt;
-		response += "'><TITLE>1ch Gateway " + String(tt) + "</TITLE>";
+    // Easy LoRa
+		// response += "'><TITLE>1ch Gateway " + String(tt) + "</TITLE>";
+    response += "'><TITLE>Easy LoRaWAN Gateway " + String(tt) + "</TITLE>";
 	}
 	else {
-		response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>1ch Gateway " + String(tt) + "</TITLE>");
+		// Easy LoRa
+    // response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>1ch Gateway " + String(tt) + "</TITLE>");
+    response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>Easy LoRaWAN Gateway " + String(tt) + "</TITLE>");
 	}
 #else
-	response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>1ch Gateway " + String(tt) + "</TITLE>");
+    // Easy LoRa
+    // response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>1ch Gateway " + String(tt) + "</TITLE>");
+    response += String("<!DOCTYPE HTML><HTML><HEAD><TITLE>Easy LoRaWAN Gateway " + String(tt) + "</TITLE>");
 #endif
 	response += "<META HTTP-EQUIV='CONTENT-TYPE' CONTENT='text/html; charset=UTF-8'>";
 	response += "<META NAME='AUTHOR' CONTENT='M. Westenberg (mw1554@hotmail.com)'>";
 
-	response += "<style>.thead {background-color:green; color:white;} ";
+  // Easy LoRa
+	// response += "<style>.thead {background-color:green; color:white;} ";
+  response += "<style>.thead {background-color:#109bc5; color:white;} ";
 	response += ".cell {border: 1px solid black;}";
 	response += ".config_table {max_width:100%; min-width:400px; width:98%; border:1px solid black; border-collapse:collapse;}";
 	response += "</style></HEAD><BODY>";
-	
-	response +="<h1>ESP Gateway Config</h1>";
 
+  // Easy LoRa
+	// response +="<h1>ESP Gateway Config</h1>";
+  response +="<h1>Easy LoRaWAN Gateway</h1>";
+  
 	response +="<p style='font-size:10px;'>";
 	response +="Version: "; response+=VERSION;
-	response +="<br>ESP alive since "; 					// STARTED ON
+	
+	// Easy LoRa
+  // response +="<br>ESP alive since "; 					// STARTED ON
+  response +="<br>Gateway is alive since ";           // STARTED ON
 	stringTime(startTime, response);
 
 	response +=", Uptime: ";							// UPTIME
@@ -485,8 +498,12 @@ static void gatewaySettings()
 	response +="<table class=\"config_table\">";
 	response +="<tr>";
 	response +="<th class=\"thead\">Setting</th>";
-	response +="<th colspan=\"2\" style=\"background-color: green; color: white; width:120px;\">Value</th>";
-	response +="<th colspan=\"4\" style=\"background-color: green; color: white; width:100px;\">Set</th>";
+
+  // Easy LoRa
+	// response +="<th colspan=\"2\" style=\"background-color: green; color: white; width:120px;\">Value</th>";
+	// response +="<th colspan=\"4\" style=\"background-color: green; color: white; width:100px;\">Set</th>";
+ response +="<th colspan=\"2\" style=\"background-color: #109bc5; color: white; width:120px;\">Value</th>";
+ response +="<th colspan=\"4\" style=\"background-color: #109bc5; color: white; width:100px;\">Set</th>";
 	response +="</tr>";
 	
 	bg = " background-color: ";
@@ -699,7 +716,7 @@ static void gatewaySettings()
 // --------------------------------------------------------------------------------
 // H2 Package Statistics
 //
-// This section display a matrix on the screen where everay channel and spreading
+// This section display a matrix on the screen where every channel and spreading
 // factor is displayed.
 // --------------------------------------------------------------------------------
 static void statisticsData()
@@ -708,7 +725,10 @@ static void statisticsData()
 	//
 	// Header Row
 	//
-	response +="<h2>Package Statistics</h2>";
+  // Easy LoRa
+	// response +="<h2>Package Statistics</h2>";
+  response +="<h2>Traffic Statistics</h2>";
+  
 	response +="<table class=\"config_table\">";
 	response +="<tr><th class=\"thead\">Counter</th>";
 #	if _STATISTICS == 3
@@ -716,14 +736,20 @@ static void statisticsData()
 		response +="<th class=\"thead\">C 1</th>";
 		response +="<th class=\"thead\">C 2</th>";
 #	endif //_STATISTICS==3
-	response +="<th class=\"thead\">Pkgs</th>";
-	response +="<th class=\"thead\">Pkgs/hr</th>";
+  // Easy LoRa
+	// response +="<th class=\"thead\">Pkgs</th>";
+	// response +="<th class=\"thead\">Pkgs/hr</th>";
+  response +="<th class=\"thead\">Pkts</th>";
+  response +="<th class=\"thead\">Pkts/hr</th>";
 	response +="</tr>";
 
 	//
 	// Table rows
 	//
-	response +="<tr><td class=\"cell\">Packages Downlink</td>";
+  // Easy LoRa
+	// response +="<tr><td class=\"cell\">Packages Downlink</td>";
+  response +="<tr><td class=\"cell\">Packet Downlink</td>";
+  
 #	if _STATISTICS == 3
 		response +="<td class=\"cell\">" + String(statc.msg_down_0) + "</td>";
 		response +="<td class=\"cell\">" + String(statc.msg_down_1) + "</td>";
@@ -731,8 +757,10 @@ static void statisticsData()
 #	endif
 	response += "<td class=\"cell\">" + String(statc.msg_down) + "</td>";
 	response +="<td class=\"cell\"></td></tr>";
-		
-	response +="<tr><td class=\"cell\">Packages Uplink Total</td>";
+
+  // Easy LoRa
+	// response +="<tr><td class=\"cell\">Packages Uplink Total</td>";
+  response +="<tr><td class=\"cell\">Packet Uplink Total</td>";
 #	if	 _STATISTICS == 3
 		response +="<td class=\"cell\">" + String(statc.msg_ttl_0) + "</td>";
 		response +="<td class=\"cell\">" + String(statc.msg_ttl_1) + "</td>";
@@ -742,7 +770,9 @@ static void statisticsData()
 	response +="<td class=\"cell\">" + String((statc.msg_ttl*3600)/(now() - startTime)) + "</td></tr>";
 
 #	if _GATEWAYNODE==1
-		response +="<tr><td class=\"cell\">Packages Internal Sensor</td>";
+		// Easy LoRa
+    // response +="<tr><td class=\"cell\">Packages Internal Sensor</td>";
+    response +="<tr><td class=\"cell\">Packet Internal Sensor</td>";
 #		if	 _STATISTICS == 3
 			response +="<td class=\"cell\">" + String(statc.msg_sens_0) + "</td>";
 			response +="<td class=\"cell\">" + String(statc.msg_sens_1) + "</td>";
@@ -751,8 +781,9 @@ static void statisticsData()
 		response +="<td class=\"cell\">" + String(statc.msg_sens) + "</td>";
 		response +="<td class=\"cell\">" + String((statc.msg_sens*3600)/(now() - startTime)) + "</td></tr>";
 #	endif //_GATEWAYNODE
-
-	response +="<tr><td class=\"cell\">Packages Uplink OK </td>";
+  // Easy LoRa
+  // response +="<tr><td class=\"cell\">Packages Uplink OK </td>";
+  response +="<tr><td class=\"cell\">Packet Uplink OK </td>";
 #if	 _STATISTICS == 3
 		response +="<td class=\"cell\">" + String(statc.msg_ok_0) + "</td>";
 		response +="<td class=\"cell\">" + String(statc.msg_ok_1) + "</td>";
@@ -1812,4 +1843,3 @@ static void websiteFooter()
 
 
 #endif // _SERVER==1
-
