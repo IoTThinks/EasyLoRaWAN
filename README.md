@@ -12,6 +12,6 @@ To run in 1 channel at 433.175Mhz, SF9
 
 ## AS-923-2 (Vietnam)
 To run at 8 channels in 920-923Mhz
-* Any LoRaWAN 8-channel gateway with AS923-2 support. Tested with Kerlink iFemtoCeil-evolution 923 gateway and Dragino LPS8 gateway 923.
+* Any LoRaWAN 8-channel gateway with AS923-2 support: Tested with Kerlink iFemtoCeil-evolution 923 gateway and Dragino LPS8 gateway 923.
 * Sample code for EasyLoRaWANNodeV2: Coming soon.
 * Modified Beelan-LoRaWAN: https://github.com/IoTThinks/Beelan-LoRaWAN/tree/Added-AS923-and-AS923-2
