@@ -3,8 +3,12 @@ Easy LoRaWAN Services provide Plug-n-Play services to individuals and businesses
 * Wiki: https://github.com/IoTThinks/EasyLoRaWAN/wiki
 
 ## EU-433
-To run at 433.175Mhz, SF9
+To run in 1 channel at 433.175Mhz, SF9
 * EasyLoRaWANGateway.zip
 * EasyLoRaWANNode.zip
-* arduino-lmic-master.zip
+* arduino-lmic-master.zip. Modified library from https://github.com/matthijskooijman/arduino-lmic
 * lib.zip
+
+## AS-923-2 (Vietnam)
+To run at 8 channels in 920-923Mhz
+* Coming soon
