@@ -19,4 +19,4 @@ To run at 8 channels in 920-923Mhz
 * LoRaWAN Server: https://iotthinks.com/easylorawan-cloud
 * Any LoRaWAN 8-channel gateway with AS923-2 support: Tested with Kerlink iFemtoCeil-evolution 923 gateway and Dragino LPS8 gateway 923.
 * Sample code for EasyLoRaWANNodeV2: EasyLoRaWANNodeV2.zip
-* Modified Beelan-LoRaWAN: https://github.com/IoTThinks/Beelan-LoRaWAN/tree/Added-AS923-and-AS923-2
+* Beelan-LoRaWAN with AS923-2 support: https://github.com/BeelanMX/Beelan-LoRaWAN
