@@ -2,7 +2,7 @@
 The codecs will be used in this guide: https://iotthinks.com/add-a-lorawan-device-in-to-easy-lorawan-cloud/
 - The codecs in this folder is COMFIRMED to work with Easy LoRaWAN Cloud
 
-The below sample codecs are from external repositores and required to be fixed before using in Easy LoRaWAN Cloud.
+The below sample codecs are COMPATIBLE with Easy LoRaWAN Cloud.
 - From TTN: https://github.com/IoTThinks/lorawan-devices/tree/master/vendor
 - From Dragino: https://www.dropbox.com/sh/sa4uitwn6xdku9u/AACUA890oj5dl8rETYO2icdBa?dl=0
 - From RAK Wireless: https://github.com/RAKWireless/RAKwireless_Standardized_Payload
