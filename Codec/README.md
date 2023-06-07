@@ -7,6 +7,7 @@ The below sample codecs are from external repositores and required to be fixed b
 - From Dragino: https://www.dropbox.com/sh/sa4uitwn6xdku9u/AACUA890oj5dl8rETYO2icdBa?dl=0
 - From RAK Wireless: https://github.com/RAKWireless/RAKwireless_Standardized_Payload
 
+### Codec Format
 A valid codec for Easy LoRaWAN Cloud is below:
 ```
 // Decode uplink function.
@@ -40,5 +41,24 @@ function decodeUplink(input) {
 // - bytes = Byte array containing the downlink payload.
 function encodeDownlink(input) {
   return {bytes: []};
+}
+```
+
+### Conversion of Codec Formats
+If you have a codec for ChirpStack v3, you need to put the below wrapper function to convert a codec to ChirpStack v4.
+Easy LoRaWAN uses ChirpStack v4
+
+```
+// V3
+function Decode(fPort, bytes, variables) {
+   ...
+}
+
+// V3 to V4 converter
+function decodeUplink(input) {
+   // Wrapper function for ChirpStack v4
+   return {
+      data: Decode(input.fPort, input.bytes, input.variables)
+   };
 }
 ```
