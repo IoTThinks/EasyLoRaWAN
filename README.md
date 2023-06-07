@@ -1,5 +1,5 @@
 # Easy LoRaWAN
-Easy LoRaWAN Services provide Plug-n-Play services to individuals and businesses to use Long Range technologies to monitor and control smart farms, factories and buildings.
+Easy LoRaWAN is an up-to-10km wireless platform to monitor and control smart farms, factories and buildings.
 * Sponsor: https://iotthinks.com
 * Wiki: https://github.com/IoTThinks/EasyLoRaWAN/wiki
 * Facebook channel: https://www.facebook.com/groups/iotthinks
