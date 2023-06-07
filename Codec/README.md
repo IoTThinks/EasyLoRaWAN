@@ -1,0 +1,1 @@
+# Compatible codecs for Easy LoRaWAN Cloud
