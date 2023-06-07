@@ -54,7 +54,7 @@ function Decode(fPort, bytes, variables) {
    ...
 }
 
-// V3 to V4 converter
+// Converter from ChirpStack v3 to ChirpStack v4 / Easy LoRaWAN Cloud
 function decodeUplink(input) {
    // Wrapper function for ChirpStack v4
    return {
