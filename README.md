@@ -4,7 +4,8 @@ Easy LoRaWAN is an up-to-10km wireless platform to monitor and control smart far
 * Wiki: https://github.com/IoTThinks/EasyLoRaWAN/wiki
 * Facebook channel: https://www.facebook.com/groups/iotthinks
 
-## EU-433
+## DIY Guides
+### EU-433
 To run in 1 channel at 433.175Mhz, SF9
 * Instruction: https://iotthinks.com/tag/eu433
 * LoRaWAN Server: https://iotthinks.com/easylorawan-cloud
@@ -13,7 +14,7 @@ To run in 1 channel at 433.175Mhz, SF9
 * Modified library from https://github.com/matthijskooijman/arduino-lmic: arduino-lmic-master.zip
 * Extra required libraries: lib.zip
 
-## AS-923-2 (Vietnam)
+### AS-923-2 (Vietnam)
 To run at 8 channels in 920-923Mhz
 * Instruction: Coming soon on https://iotthinks.com/guides
 * LoRaWAN Server: https://iotthinks.com/easylorawan-cloud
