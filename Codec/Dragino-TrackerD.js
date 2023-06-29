@@ -1,33 +1,33 @@
 //The function is :
 function decodeUplink(input) {
   var port = input.fPort;
-var bytes = input.bytes;
-// Decode an uplink message from a buffer
-// (array) of bytes to an object of fields.
-	var i;
-	var con;
-	var str = "";
-	var major = 1;
-	var minor = 1;
-	var rssi = 0;
-	var power = 0;
-	var device_information1 = 0;
-	var device_information2 = 0;
-	var device_information3 = 0;
-	var addr = "";
-	var alarm=0;//Alarm status
-	var batV=0;//Battery,units:V
-	var bat=0;//Battery,units:V
-	var mod = 0;
-	var led_updown="";//LED status for position,uplink and downlink
-	var Firmware = 0;  // Firmware version; 5 bits   
-	var hum=0;//hum,units: °
-	var tem=0; //tem,units: °  
-	var latitude=0;//gps latitude,units: °  
-	var longitude = 0;//gps longitude,units: ° 
-	var location=0;
-	var time =0;
-	var date =0;
+  var bytes = input.bytes;
+  // Decode an uplink message from a buffer
+  // (array) of bytes to an object of fields.
+  var i;
+  var con;
+  var str = "";
+  var major = 1;
+  var minor = 1;
+  var rssi = 0;
+  var power = 0;
+  var device_information1 = 0;
+  var device_information2 = 0;
+  var device_information3 = 0;
+  var addr = "";
+  var alarm=0;//Alarm status
+  var batV=0;//Battery,units:V
+  var bat=0;//Battery,units:V
+  var mod = 0;
+  var led_updown="";//LED status for position,uplink and downlink
+  var Firmware = 0;  // Firmware version; 5 bits   
+  var hum=0;//hum,units: °
+  var tem=0; //tem,units: °  
+  var latitude=0;//gps latitude,units: °  
+  var longitude = 0;//gps longitude,units: ° 
+  var location=0;
+  var time =0;
+  var date =0;
   var sub_band;
   var freq_band;
   var sensor; 
@@ -69,10 +69,15 @@ var bytes = input.bytes;
 	    intwk = (bytes[10] & 0x10)?"MOVE":"STILL";
 
 			{
-			var decode = {};
-			decode.Location=location
-			decode.Latitude=latitude
-			decode.Longitud=longitude
+			var decode = {};			
+			
+			if(latitude !== 0 && longitude !==0) 
+			{
+			   decode.Location=location
+			   decode.Latitude=latitude
+			   decode.Longitud=longitude
+			}
+			
 			decode.Hum=hum
 			decode.Tem=tem
 			decode.ALARM_status=alarm
@@ -116,9 +121,14 @@ var bytes = input.bytes;
 	    intwk = (bytes[10] & 0x10)?"MOVE":"STILL";
 			{
 			var decode = {};
-			decode.Location=location
-			decode.Latitude=latitude
-			decode.Longitud=longitude
+
+			if(latitude !== 0 && longitude !==0) 
+			{
+			   decode.Location=location
+			   decode.Latitude=latitude
+			   decode.Longitud=longitude
+			}
+			
 			decode.BatV=batV
 			decode.ALARM_status=alarm
 			decode.MD=mod
@@ -155,8 +165,14 @@ case 4:
 			date = year+':'+Month+":"+day;
 			time = hour+":"+min+":"+sen;
 			
-			decode.Location=location
-			decode.Latitude=latitude
+
+			if(latitude !== 0 && longitude !==0) 
+			{
+			   decode.Location=location
+			   decode.Latitude=latitude
+			   decode.Longitud=longitude
+			}
+			
 			decode.Date=date
 			decode.Time=time
 			return {
