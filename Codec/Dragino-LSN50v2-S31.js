@@ -57,10 +57,10 @@ function Decoder(bytes, port) {
     {
       decode.BatV=(bytes[0]<<8 | bytes[1])/1000;
       decode.EXTI_Trigger=(bytes[6] & 0x01)? "TRUE":"FALSE";
-      decode.Door_status=(bytes[6] & 0x80)? "CLOSE":"OPEN";     
+      // decode.Door_status=(bytes[6] & 0x80)? "CLOSE":"OPEN";     
       decode.TempC_SHT31= parseFloat(((bytes[7]<<24>>16 | bytes[8])/10).toFixed(1));
       decode.Hum_SHT31=parseFloat(((bytes[9]<<8 | bytes[10])/10).toFixed(1));
-      decode.Data_time= getMyDate((bytes[2]<<24 | bytes[3]<<16 | bytes[4]<<8 | bytes[5]).toString(10));         
+      // decode.Data_time= getMyDate((bytes[2]<<24 | bytes[3]<<16 | bytes[4]<<8 | bytes[5]).toString(10));         
     }
     else if(mode==31)
     {
