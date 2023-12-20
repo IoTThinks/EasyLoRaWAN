@@ -1,3 +1,4 @@
+// For firmware v1.3.2
 // Decode uplink function.
 //
 // Input is an object with the following fields:
