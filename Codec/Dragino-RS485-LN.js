@@ -9,9 +9,14 @@
 // - data = Object representing the decoded payload.
 function decodeUplink(input) {
   var bytes=input.bytes;
+
+  // Filter packets
+  if(input.fPort != 2 && input.fPort!=100) {
+    return {"data": {}};
+  }
   
   //Payload Formats of RS485_LN Deceive, for TTN/ChirpStack
-  if(bytes.length > 6) // Telemetry, by right should check by fport
+  if(bytes.length > 8) // Telemetry, by right should check by fport
   {
     // uplink from RS485 has payload version at bytes[0]
     var cs_temp = (bytes[1] << 8 | bytes[2]) / 10;
@@ -40,7 +45,7 @@ function decodeUplink(input) {
             "cs_exportKWh":cs_exportKWh, "cs_importKWh":cs_importKWh, "cs_totalKWh":cs_totalKWh}
            };
   }
-  else if(bytes.length == 6) // return from RPC commands
+  else if(bytes.length == 8) // return from RPC commands
   {
     // Uplink from RPC response does not have payload version at bytes[0]
     // AL1: On OK  [0x01,0x06,0x20,0x01,0x03,0xe8]    
