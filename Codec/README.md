@@ -4,7 +4,7 @@ The codecs will be used in this guide: https://iotthinks.com/add-a-lorawan-devic
 
 The below sample codecs are COMPATIBLE with Easy LoRaWAN Cloud.
 - From TTN: https://github.com/IoTThinks/lorawan-devices/tree/master/vendor
-- From Dragino: https://www.dropbox.com/sh/sa4uitwn6xdku9u/AACUA890oj5dl8rETYO2icdBa?dl=0
+- From Dragino: https://github.com/IoTThinks/dragino-end-node-decoder
 - From RAK Wireless: https://github.com/RAKWireless/RAKwireless_Standardized_Payload
 
 ### Codec Format
