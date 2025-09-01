@@ -1,0 +1,63 @@
+{
+  "SX1301_conf": {
+    "lorawan_public": true,
+    "antenna_gain": 3,
+    "antenna_gain_desc": "Antenna gain, in dBi",
+    "insertion_loss": 0.5,
+    "insertion_loss_desc": "Insertion loss, in dB",
+
+    "radio_0": {
+      "enable": true,
+      "freq": 904300000,
+      "tx_enable": true,
+      "tx_freq_min": 902000000,
+      "tx_freq_max": 928000000
+    },
+    "radio_1": {
+      "enable": true,
+      "freq": 905000000,
+      "tx_enable": false
+    },
+
+    "chan_multiSF_0": { "desc": "903.9 MHz", "enable": true, "radio": 0, "if": -400000 },
+    "chan_multiSF_1": { "desc": "904.1 MHz", "enable": true, "radio": 0, "if": -200000 },
+    "chan_multiSF_2": { "desc": "904.3 MHz", "enable": true, "radio": 0, "if": 0 },
+    "chan_multiSF_3": { "desc": "904.5 MHz", "enable": true, "radio": 0, "if": 200000 },
+    "chan_multiSF_4": { "desc": "904.7 MHz", "enable": true, "radio": 0, "if": 400000 },
+    "chan_multiSF_5": { "desc": "904.9 MHz", "enable": true, "radio": 1, "if": -100000 },
+    "chan_multiSF_6": { "desc": "905.1 MHz", "enable": true, "radio": 1, "if": 100000 },
+    "chan_multiSF_7": { "desc": "905.3 MHz", "enable": true, "radio": 1, "if": 300000 },
+
+    "chan_Lora_std": {
+      "desc": "LoRa, 500 kHz, SF8, 904.6 MHz",
+      "enable": true,
+      "radio": 0,
+      "if": 300000,
+      "bandwidth": 500000,
+      "spread_factor": 8
+    },
+
+    "chan_FSK": {
+      "desc": "FSK disabled",
+      "enable": false,
+      "radio": 1,
+      "if": 0,
+      "bandwidth": 125000,
+      "datarate": 50000
+    }
+  },
+
+  "gateway_conf": {
+    "beacon_enable": true,
+    "beacon_period": 128,
+    "beacon_freq_hz": 923300000,
+    "beacon_datarate": 10,
+    "beacon_bw_hz": 125000,
+    "beacon_power": 14,
+    "beacon_infodesc": {
+      "latitude": 0.0,
+      "longitude": 0.0
+    },
+    "netid": "0"
+  }
+}
